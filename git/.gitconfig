@@ -1,0 +1,54 @@
+[user]
+email = kane.williams@email.com
+name = Kane Williams
+
+[push]
+    default = upstream
+    followTags = true
+    autoSetupRemote = true
+[branch]
+    autosetuprebase = always
+[alias]
+    firstpush = push -u origin master
+    get = fetch --verbose
+    showtool = "difftool HEAD^..HEAD"
+    ff = "merge --ff-only"
+    force = "push --force-with-lease --force-if-includes"
+    newbranches = "for-each-ref --count=20 --sort=-committerdate refs/heads/ --format='%(committerdate:short) - %(refname:short)'"
+    st = status
+    sta = status
+    stat = status
+    oneline = "log --pretty=format:\"%h %s (%an)\""
+    whoops = commit --amend --no-edit
+    
+    d = diff
+    dt = difftool --dir-diff
+    ri = rebase -i
+    dh = difftool --dir-diff HEAD^1
+    d1 = difftool --dir-diff HEAD^1
+    d2 = difftool --dir-diff HEAD~2
+    d3 = difftool --dir-diff HEAD~3
+[core]
+    editor = nvim
+    pager = diff-so-fancy | less --tabs=4 -RF
+[merge]
+    conflictStyle = zdiff3
+[interactive]
+    diffFilter = diff-so-fancy --patch
+[color]
+    ui = true
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+[color "diff"]
+    meta = 11
+    frag = magenta bold
+    func = 146 bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[credential]
+    helper = store
